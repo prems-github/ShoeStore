@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
-
+import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 
 /**
@@ -18,24 +18,29 @@ import com.udacity.shoestore.R
  */
 class LoginFragment : Fragment() {
 
-    lateinit var loginButton:Button
+    private lateinit var loginButton: Button
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        val view=  inflater.inflate(R.layout.fragment_login, container, false)
-        loginButton=view.findViewById(R.id.login_button)
+        _binding= FragmentLoginBinding.inflate(inflater,container,false)
+        val view = binding.root
+
         return view
     }
 
     override fun onStart() {
         super.onStart()
-        loginButton.setOnClickListener {view->
+        binding.loginButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
     }
