@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -19,8 +20,7 @@ import timber.log.Timber
  */
 class LoginFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var loginViewModel: LoginViewModel
 
     override fun onCreateView(
@@ -28,12 +28,11 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        val view = binding.root
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
         //Associating LoginViewModel
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        return view
+        return binding.root
     }
 
     override fun onStart() {
@@ -68,11 +67,6 @@ class LoginFragment : Fragment() {
                 view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }
