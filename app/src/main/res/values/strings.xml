@@ -2,5 +2,24 @@
     <string name="app_name">ShoeStore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="login_text">Login</string>
-    <string name="welcome_text">Welcome</string>
+    <string name="welcome_text">Welcome to new Shoe Store Inventory</string>
+    <string name="new_user_text">Login as new user</string>
+    <string name="username_label_text">Username</string>
+    <string name="password_label_text">Password</string>
+    <string name="detailed_instruction">1. Monitor the threshold limit and procure if it breaches
+    \n2. Make sure the stock numbers are upto date
+    \n3. Add new arrival of stock with full details
+    \n4. Periodically give update and receive updates from sales team</string>
+    <string name="instruction_button_text">Proceed to Instruction</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="instruction_title">Instructions to manage Inventory</string>
+    <string name="got_it_button">Got It</string>
+    <string name="shoe_store_text">Loot Boot Shoe Store</string>
+    <string name="test">testing in linear layout</string>
+
+    <!--Shoe description-->
+    <string name="nike">walking shoe - a light comfortable shoe designed for vigorous walking. shoe - footwear shaped to fit the foot (below the ankle) with a flexible upper of leather or plastic and a sole and heel of heavier material.</string>
+    <string name="reebok">A lightweight shoe designed for use by runners Running shoes need cushioning in forefoot and heel to absorb about four times your body weight per step.</string>
+
 </resources>
