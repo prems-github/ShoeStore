@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 
@@ -28,6 +29,16 @@ class ShoeDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        binding.cancelButton.setOnClickListener { view->
+            view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+        }
+        binding.addButton.setOnClickListener { view->
+            view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+        }
     }
 
 }
