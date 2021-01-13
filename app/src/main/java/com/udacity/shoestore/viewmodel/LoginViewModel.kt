@@ -10,6 +10,7 @@ class LoginViewModel : ViewModel() {
         Timber.i("Login view model created")
     }
 
+    //user login details
     private val loginDetails = mutableListOf(
         Login("a", "a"),
         Login("ramesh@gmail.com", "jackie"),
@@ -30,8 +31,4 @@ class LoginViewModel : ViewModel() {
         Timber.i("New list size is ${loginDetails.size}")
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        Timber.i("Login view model destroyed")
-    }
 }

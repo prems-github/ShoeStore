@@ -11,6 +11,7 @@ class ShoeListViewModel : ViewModel() {
     val shoeList: LiveData<ArrayList<Shoe>>
         get() = _shoeList
 
+    //shoe inventory list
     init {
         _shoeList.postValue(
             arrayListOf(
@@ -42,6 +43,7 @@ class ShoeListViewModel : ViewModel() {
         )
     }
 
+    //adding new shoe to the list
     fun addToList(newShoe: Shoe) {
         val newList = shoeList.value
         newList?.add(newShoe)

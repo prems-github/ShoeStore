@@ -47,6 +47,8 @@ class ShoeDetailFragment : Fragment() {
         binding.cancelButton.setOnClickListener { view->
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
+
+        //Adds a new shoe to the list and returns to shoe list screen
         binding.addButton.setOnClickListener { view->
             shoeListViewModel?.addToList(Shoe(
                 binding.shoeNameEdittext.text.toString(),

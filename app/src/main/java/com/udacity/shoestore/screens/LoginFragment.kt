@@ -37,10 +37,10 @@ class LoginFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        //authenticating user
         binding.loginButton.setOnClickListener { view ->
             Timber.d("User Name is ${binding.userNameText.text} and pwd is ${binding.pwdText.text}")
 
-            //Checks user credentials and navigates to next screen
             val isLoginSuccess = loginViewModel.isUserExist(
                 binding.userNameText.text.toString(),
                 binding.pwdText.text.toString()

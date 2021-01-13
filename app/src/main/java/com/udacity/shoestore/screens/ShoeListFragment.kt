@@ -46,8 +46,9 @@ class ShoeListFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
         Timber.i("Shoe List View model created $shoeListViewModel")
+
+        //observing livedata  and creating views dynamically
         shoeListViewModel?.shoeList?.observe(viewLifecycleOwner, Observer {
             for (i in 0..it.size - 1) {
                 val textView = TextView(requireContext())
@@ -62,14 +63,9 @@ class ShoeListFragment : Fragment() {
             }
         })
 
+        //navigates to shoe detail screen
         binding.actionButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_shoeListFragment_to_shoeDetailFragment)
         }
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Timber.i("ShoeListView Model destroyed")
     }
 }
