@@ -49,6 +49,16 @@ class MainActivity : AppCompatActivity() {
 
         return true
     }
+    override fun onBackPressed() {
+        if (navController.currentDestination?.id == R.id.shoeListFragment) {
+            if (backPressed + twoSecond > System.currentTimeMillis())
+                super.onBackPressed()
+            else
+                Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
+            backPressed = System.currentTimeMillis()
+        } else
+            super.onBackPressed()
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(
