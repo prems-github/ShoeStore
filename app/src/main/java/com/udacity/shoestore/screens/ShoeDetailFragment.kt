@@ -37,6 +37,7 @@ class ShoeDetailFragment : Fragment() {
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
         binding.addButton.setOnClickListener { view->
+
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
     }
