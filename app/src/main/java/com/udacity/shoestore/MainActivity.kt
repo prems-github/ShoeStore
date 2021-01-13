@@ -4,14 +4,19 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.ActivityMainBinding
+import com.udacity.shoestore.viewmodel.ShoeListViewModel
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    val shoeListViewModel by lazy {
+        ViewModelProvider(this).get(ShoeListViewModel::class.java)
+    }
     private val navController by lazy {
         this.findNavController(R.id.myNavHostFragment)
     }

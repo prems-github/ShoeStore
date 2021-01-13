@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
+import timber.log.Timber
 
 
 /**
@@ -22,7 +23,12 @@ import com.udacity.shoestore.viewmodel.ShoeListViewModel
 class ShoeListFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
-    private lateinit var shoeListViewModel: ShoeListViewModel
+
+    val shoeListViewModel by lazy {
+        activity?.run {
+            ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,13 +40,15 @@ class ShoeListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
-        shoeListViewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
+
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-        shoeListViewModel.shoeList.observe(viewLifecycleOwner, Observer {
+
+        Timber.i("Shoe List View model created $shoeListViewModel")
+        shoeListViewModel?.shoeList?.observe(viewLifecycleOwner, Observer {
             for (i in 0..it.size - 1) {
                 val textView = TextView(requireContext())
                 val params = LinearLayout.LayoutParams(
@@ -54,9 +62,13 @@ class ShoeListFragment : Fragment() {
             }
         })
 
-        binding.actionButton.setOnClickListener{view->
+        binding.actionButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_shoeListFragment_to_shoeDetailFragment)
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("ShoeListView Model destroyed")
+    }
 }
