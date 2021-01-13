@@ -67,6 +67,7 @@ class ShoeListFragment : Fragment() {
         }
     }
 
+
     override fun onDestroy() {
         super.onDestroy()
         Timber.i("ShoeListView Model destroyed")

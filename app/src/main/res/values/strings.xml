@@ -19,7 +19,7 @@
     <string name="logout_text">Logout</string>
 
     <!--Shoe description-->
-    <string name="nike">walking shoe - a light comfortable shoe designed for vigorous walking. shoe - footwear shaped to fit the foot (below the ankle) with a flexible upper of leather or plastic and a sole and heel of heavier material.</string>
+    <string name="nike"></string>
     <string name="reebok">A lightweight shoe designed for use by runners Running shoes need cushioning in forefoot and heel to absorb about four times your body weight per step.</string>
     <string name="add_button">Add</string>
     <string name="cancel_button">Cancel</string>

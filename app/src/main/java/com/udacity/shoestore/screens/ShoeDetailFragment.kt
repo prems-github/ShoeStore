@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
 import timber.log.Timber
 
@@ -47,7 +48,12 @@ class ShoeDetailFragment : Fragment() {
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
         binding.addButton.setOnClickListener { view->
-
+            shoeListViewModel?.addToList(Shoe(
+                binding.shoeNameEdittext.text.toString(),
+                binding.shoeSizeEdittext.text.toString(),
+                binding.shoeCompanyEdittext.text.toString(),
+                binding.shoeDescriptionEdittext.text.toString()
+            ))
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
     }
