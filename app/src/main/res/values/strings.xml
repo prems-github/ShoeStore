@@ -17,6 +17,7 @@
     <string name="got_it_button">Got It</string>
     <string name="shoe_store_text">Loot Boot Shoe Store</string>
     <string name="test">testing in linear layout</string>
+    <string name="logout_text">Logout</string>
 
     <!--Shoe description-->
     <string name="nike">walking shoe - a light comfortable shoe designed for vigorous walking. shoe - footwear shaped to fit the foot (below the ankle) with a flexible upper of leather or plastic and a sole and heel of heavier material.</string>
