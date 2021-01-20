@@ -45,8 +45,7 @@ class ShoeListViewModel : ViewModel() {
 
     //adding new shoe to the list
     fun addToList(newShoe: Shoe) {
-        val newList = shoeList.value
-        newList?.add(newShoe)
-        _shoeList.postValue(newList)
+        shoeList.value?.add(newShoe)
+        _shoeList.postValue(shoeList.value)
     }
 }
