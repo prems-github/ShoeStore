@@ -1,8 +1,6 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -11,7 +9,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
-import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     val shoeListViewModel by lazy {
         ViewModelProvider(this).get(ShoeListViewModel::class.java)
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,22 +44,6 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.overflow_menu, menu)
-
-        // disabling menu in main login page
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            Timber.i("destination change listener called")
-            if (destination.id == R.id.loginFragment)
-                menu?.setGroupVisible(0, false)
-            else
-                menu?.setGroupVisible(0, true)
-        }
-
-        return true
-    }
-
     //giving warning to users, to exit double press the back key
     override fun onBackPressed() {
         if (navController.currentDestination?.id == R.id.shoeListFragment) {
@@ -76,10 +56,25 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+       menuInflater.inflate(R.menu.overflow_menu, menu)
+
+       // disabling menu in main login page
+       navController.addOnDestinationChangedListener { controller, destination, arguments ->
+           Timber.i("destination change listener called")
+           if (destination.id == R.id.loginFragment)
+               menu?.setGroupVisible(0, false)
+           else
+               menu?.setGroupVisible(0, true)
+       }
+
+       return true
+   }*/
+
+   /* override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(
             item,
             navController
         ) || super.onOptionsItemSelected(item)
-    }
+    }*/
 }
