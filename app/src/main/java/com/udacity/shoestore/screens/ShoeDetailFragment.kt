@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
 import timber.log.Timber
 
@@ -29,7 +28,6 @@ class ShoeDetailFragment : Fragment() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -38,6 +36,7 @@ class ShoeDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
+        binding.mShoe=shoeListViewModel
         return binding.root
     }
 
@@ -50,12 +49,7 @@ class ShoeDetailFragment : Fragment() {
 
         //Adds a new shoe to the list and returns to shoe list screen
         binding.addButton.setOnClickListener { view->
-            shoeListViewModel?.addToList(Shoe(
-                binding.shoeNameEdittext.text.toString(),
-                binding.shoeSizeEdittext.text.toString(),
-                binding.shoeCompanyEdittext.text.toString(),
-                binding.shoeDescriptionEdittext.text.toString()
-            ))
+            shoeListViewModel?.addToList()
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
     }

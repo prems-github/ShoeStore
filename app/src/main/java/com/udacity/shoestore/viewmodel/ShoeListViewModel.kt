@@ -11,8 +11,14 @@ class ShoeListViewModel : ViewModel() {
     val shoeList: LiveData<ArrayList<Shoe>>
         get() = _shoeList
 
+     lateinit var name:String
+     lateinit var size:String
+     lateinit var company:String
+     lateinit var description:String
+
     //shoe inventory list
     init {
+        emptyFields()
         _shoeList.postValue(
             arrayListOf(
                 Shoe(
@@ -44,8 +50,17 @@ class ShoeListViewModel : ViewModel() {
     }
 
     //adding new shoe to the list
-    fun addToList(newShoe: Shoe) {
-        shoeList.value?.add(newShoe)
+    fun addToList() {
+        shoeList.value?.add(Shoe(name,size,company,description))
         _shoeList.postValue(shoeList.value)
+        emptyFields()
+
+    }
+
+    fun emptyFields(){
+        name=""
+        size=""
+        company=""
+        description=""
     }
 }
