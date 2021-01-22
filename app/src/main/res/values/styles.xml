@@ -18,7 +18,7 @@
 
     <style name="form_text_style">
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textColor">@android:color/background_dark</item>
+        <item name="android:textColor">#424242</item>
         <item name="android:textSize">22sp</item>
     </style>
 
@@ -28,7 +28,7 @@
 
     <style name="title_text_style">
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textColor">@android:color/background_dark</item>
+        <item name="android:textColor">#424242</item>
         <item name="android:textSize">30sp</item>
     </style>
 
