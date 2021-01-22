@@ -37,10 +37,10 @@ class LoginFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
         //authenticating user
         binding.loginButton.setOnClickListener { view ->
             Timber.d("User Name is ${binding.userNameText.text} and pwd is ${binding.pwdText.text}")
-
             val isLoginSuccess = loginViewModel.isUserExist(
                 binding.userNameText.text.toString(),
                 binding.pwdText.text.toString()
@@ -50,7 +50,6 @@ class LoginFragment : Fragment() {
             else
                 Toast.makeText(context, "Please enter correct credentials", Toast.LENGTH_SHORT)
                     .show()
-
         }
 
         //creates new user login

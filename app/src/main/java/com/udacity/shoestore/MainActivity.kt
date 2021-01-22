@@ -44,7 +44,10 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
     }
 
-    //giving warning to users, to exit double press the back key
+    /**Modifying onback press action
+     * 1. double press to exit from shoe list screen
+     * 2. exit the activity onback press from lgoin screen
+     */
     override fun onBackPressed() {
         if (navController.currentDestination?.id == R.id.shoeListFragment) {
             if (backPressed + twoSecond > System.currentTimeMillis())
@@ -52,7 +55,9 @@ class MainActivity : AppCompatActivity() {
             else
                 Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
             backPressed = System.currentTimeMillis()
-        } else
+        }else if(navController.currentDestination?.id == R.id.loginFragment){
+            this.finish()
+        }else
             super.onBackPressed()
     }
 
