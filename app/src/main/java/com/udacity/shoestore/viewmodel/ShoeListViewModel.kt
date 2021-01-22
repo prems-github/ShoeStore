@@ -18,6 +18,7 @@ class ShoeListViewModel : ViewModel() {
 
     //shoe inventory list
     init {
+        //initialising with empty string
         emptyFields()
         _shoeList.postValue(
             arrayListOf(
@@ -57,6 +58,7 @@ class ShoeListViewModel : ViewModel() {
 
     }
 
+    //clear all fields
     fun emptyFields(){
         name=""
         size=""

@@ -21,15 +21,12 @@ class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeDetailBinding
 
+    //activity level view model
     val shoeListViewModel by lazy {
         activity?.run {
             ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
         }
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,6 +40,7 @@ class ShoeDetailFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         Timber.i("Shoe List View model $shoeListViewModel")
+        //returns to shoelist screen
         binding.cancelButton.setOnClickListener { view->
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }

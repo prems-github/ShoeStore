@@ -24,6 +24,7 @@ class ShoeListFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
 
+    //activity level view model
     val shoeListViewModel by lazy {
         activity?.run {
             ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
