@@ -58,7 +58,8 @@ class ShoeListFragment : Fragment() {
                 )
                 textView.layoutParams = params
                 textView.setText("${it[i].name}")
-                textView.textSize = 26.0F
+                textView.textSize = 28.0F
+                textView.setPadding(16,16,0,8)
                 binding.linearLayout.addView(textView)
             }
         })

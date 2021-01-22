@@ -15,10 +15,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:text="@string/instruction_title"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/title_text_style"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -44,6 +44,7 @@
         android:drawableEnd="@drawable/ic_next"
         android:text="@string/got_it_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        style="@style/button_style" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
