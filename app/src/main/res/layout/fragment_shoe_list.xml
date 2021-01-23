@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
+        <!--used constraint layout beacause in future more widgets may need to set  -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
